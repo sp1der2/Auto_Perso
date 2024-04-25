@@ -2,8 +2,7 @@
 - name: Configurer un poste et installer des paquets
   hosts: PC
   become: yes
-
-
+  
   tasks:
   
     - name: Ajout dépôt Vagrant (1/2)

@@ -13,3 +13,7 @@ logiciels=(
 #Docker
 curl -fsSL "https://get.docker.com/" -o get-docker.sh
 sh get-docker.sh
+
+#Exegol
+export PATH=/home/sp1der/.local/bin
+pipx install exegol

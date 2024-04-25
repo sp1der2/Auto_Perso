@@ -22,4 +22,4 @@
         - gpg
         - apt-transport-https
 
-#Logiciels restants : VS Code, Brave + extensions, Discord, Vagrant, Exegol
+#Logiciels restants : Docker, VS Code, Brave + extensions, Discord, Vagrant, Exegol

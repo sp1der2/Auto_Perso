@@ -16,8 +16,7 @@
         - curl
         - wget
         - wireshark
-        - keepassxc
-        - ansible
+        - keepassxc   
         - build-essential
         - git
         - gpg

@@ -21,6 +21,6 @@
         - git
         - gpg
         - apt-transport-https
-        - python3-pip
+        - pipx
 
 #Logiciels restants : Docker, VS Code, Brave + extensions, Discord, Vagrant, Exegol

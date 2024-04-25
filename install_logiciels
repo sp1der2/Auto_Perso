@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Logiciels à installer
+logiciels=(
+  docker
+  vscode
+  brave
+  discord
+  vagrant
+  exegol
+)

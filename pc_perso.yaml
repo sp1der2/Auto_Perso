@@ -17,10 +17,9 @@
     - name: Ajout dépôt ownCloud (2/2)
       shell: echo 'deb https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04/ /' | sudo tee -a /etc/apt/sources.list.d/owncloud-client.list
 
-    - name: Mise à jour des packages
-      package:
-        name: '*'
-        state: latest
+    - name: Mise à jour des dépots
+      apt:
+        update_cache: yes
 
     - name: Installation des paquets nécéssaires pour résoudre les problèmes de virtualisation
       package:
@@ -48,7 +47,7 @@
         - apt-transport-https
         - pipx
         - docker.io
-        - virtualbox
+        - virtualbox-7.0
         - owncloud-client
         - vagrant
 

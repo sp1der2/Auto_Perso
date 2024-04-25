@@ -1,0 +1,64 @@
+---
+- name: Configurer un poste et installer des paquets
+  hosts: PC
+  become: yes
+
+
+  tasks:
+  
+    - name: Ajout dépôt Vagrant (1/2)
+      shell: wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+    - name: Ajout dépôt Vagrant (2/2)
+      shell: echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+    - name: Ajout dépôt ownCloud (1/2)
+      shell: wget -nv https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04/Release.key -O - | sudo gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/owncloud-client.gpg > /dev/null
+
+    - name: Ajout dépôt ownCloud (2/2)
+      shell: echo 'deb https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04/ /' | sudo tee -a /etc/apt/sources.list.d/owncloud-client.list
+
+    - name: Mise à jour des packages
+      package:
+        name: '*'
+        state: latest
+
+    - name: Installation des paquets nécéssaires pour résoudre les problèmes de virtualisation
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - libxml2-dev
+        - libxml2-doc
+        - libxml2-utils
+        - glib-networking
+
+    - name: Installation des paquets requis
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - wireguard
+        - curl
+        - wget
+        - wireshark
+        - keepassxc   
+        - build-essential
+        - git
+        - gpg
+        - apt-transport-https
+        - pipx
+        - docker.io
+        - virtualbox
+        - owncloud-client
+        - vagrant
+
+    - name: Installation de logiciels par Snap
+      snap:
+        name: "{{ item }}"
+        classic: yes
+        state: present
+      with_items:
+        - code
+        - discord
+        - brave

@@ -1,5 +1,5 @@
 ---
-- name: Configurer un poste et installer des paquets
+- name: Configuration 
   hosts: PC
   become: yes
   

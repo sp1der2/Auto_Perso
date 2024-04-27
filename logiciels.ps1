@@ -3,6 +3,7 @@
 #3) Création Partion E:\
 #4) Lancement du script
 #5) Configuration des comptes
+#6) Récupération data cloud
 
 #Extensions VS Code à installer
 

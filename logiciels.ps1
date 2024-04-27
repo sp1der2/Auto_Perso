@@ -5,8 +5,6 @@
 #5) Configuration des comptes
 #6) Récupération data cloud
 
-#Extensions VS Code à installer
-
 #Installer winget 
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 
@@ -56,3 +54,9 @@ winget install --id=KeePassXCTeam.KeePassXC -e
 winget install --id=VMware.WorkstationPro -e --location 'E:\VMWare Workstation Pro 17' --accept-package-agreements
 winget install --id=Microsoft.VisualStudioCode -e --location 'E:\VS Code'
 winget install --id=WinSCP.WinSCP -e --location 'E:\WinSCP'
+
+#Suppression packages winget
+
+#Install extensions vscode
+"E:\VS Code\bin\code" --install-extension ms-vscode.powershell
+"E:\VS Code\bin\code" --install-extension ms-azuretools.vscode-docker

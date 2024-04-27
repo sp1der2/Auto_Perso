@@ -18,11 +18,8 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 }
 
-echo "Mise à jour des dépôts"
 winget source update
-
-#spécifier source "winget" à utiliser
-winget source set "winget"
+echo "[SUCCES] Mise à jour des dépôts"
 
 #Liste de dossiers à créer
 $folders = @(
@@ -46,22 +43,15 @@ foreach ($folder in $folders) {
 }
 
 
-#liste des application par "id"
-$apps = @(
-    "Wireguard.Wireguard",
-    "WiresharkFoundation.Wireshark -e --location 'E:\Wireshark'",
-    "Brave.Brave", 
-    "Discord.Discord",
-    "Microsoft.Teams",
-    "ownCloud.ownCloudDesktop -e --location 'E:\ownCloud'",
-    "PlayStation.PSRemotePlay",
-    "KeePassXCTeam.KeePassXC",
-    "VMware.WorkstationPro -e --location 'E:\VMWare Workstation Pro 17'",
-    "Microsoft.VisualStudioCode -e --location 'E:\VS Code'",
-    "WinSCP.WinSCP -e --location 'E:\WinSCP'"
-)
-
-foreach ($app in $apps) {
-    #Installation des applications
-    winget install --id $app
-}
+#liste des application par nom
+winget install --id WireGuard.WireGuard -e  
+winget install --id=WiresharkFoundation.Wireshark -e --location 'E:\Wireshark'
+winget install --id=Brave.Brave -e  
+winget install --id=Discord.Discord -e  
+winget install --id=Microsoft.Teams -e  
+winget install --id=ownCloud.ownCloudDesktop -e --location 'E:\ownCloud'
+winget install --id=PlayStation.PSRemotePlay -e  
+winget install --id=KeePassXCTeam.KeePassXC -e  
+winget install --id=VMware.WorkstationPro -e --location 'E:\VMWare Workstation Pro 17' --accept-package-agreements
+winget install --id=Microsoft.VisualStudioCode -e --location 'E:\VS Code'
+winget install --id=WinSCP.WinSCP -e --location 'E:\WinSCP'

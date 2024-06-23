@@ -4,6 +4,7 @@
 # Transférer contenu de clé usb (ajouter clés SSH à l'agent SSH ; appliquer bonnes permissions sur les clés également)
 # Penser à ajouter la connexion VPN au démarrage et à installer Exegol
 # à la fin, désactiver le serveur SSH
+# Rajouter extensions Brave
 
 - name: Configurer un poste et installer des paquets
   hosts: PC

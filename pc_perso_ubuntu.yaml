@@ -1,4 +1,6 @@
 ---
+# Penser à ajouter la connexion VPN au démarrage et à installer Exegol
+
 - name: Configurer un poste et installer des paquets
   hosts: PC
   become: yes
@@ -70,3 +72,4 @@
         - code
         - discord
         - brave
+        - bitwarden
